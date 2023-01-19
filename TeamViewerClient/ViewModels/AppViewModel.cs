@@ -71,7 +71,7 @@ namespace TeamViewerClient.ViewModels
                                  DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
                                  var path = di.Parent.Parent.FullName;
                                  path = path + $@"\Images";
-                                 DeleteFileHelper.DeleteLastImages(path, 500);
+                                 DeleteFileHelper.DeleteLastImages(path, 5);
                              }
                          });
 

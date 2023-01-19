@@ -34,7 +34,7 @@ namespace TeamViewerClient.NetworkHelper
                             var stream = Client.GetStream();
                             var bw = new BinaryWriter(stream);
                             bw.Write(text);
-                            await Task.Delay(9);
+                            await Task.Delay(25);
                         }
                     });
 
