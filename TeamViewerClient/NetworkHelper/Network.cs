@@ -23,17 +23,17 @@ namespace TeamViewerClient.NetworkHelper
             try
             {
                 Client.Connect(ep);
-                if (Client.Connected)
+                if (true)
                 {
                     MessageBox.Show("Connected");
-                    var writer = Task.Run(async() =>
+                    var writer = Task.Run(async () =>
                     {
                         while (true)
                         {
-                            var text = ImageHelper.GetBytesOfScreenshot();
+
+                            byte[] data = ImageHelper.GetBytesOfScreenshot();
                             var stream = Client.GetStream();
-                            var bw = new BinaryWriter(stream);
-                            bw.Write(text);
+                            stream.Write(data, 0, data.Length);
                             await Task.Delay(25);
                         }
                     });
