@@ -26,7 +26,7 @@ namespace TeamViewerClient.NetworkHelper
                 if (Client.Connected)
                 {
                     MessageBox.Show("Connected");
-                    var writer = Task.Run(() =>
+                    var writer = Task.Run(async() =>
                     {
                         while (true)
                         {
@@ -34,7 +34,7 @@ namespace TeamViewerClient.NetworkHelper
                             var stream = Client.GetStream();
                             var bw = new BinaryWriter(stream);
                             bw.Write(text);
-                            Task.Delay(200);
+                            await Task.Delay(9);
                         }
                     });
 

@@ -78,6 +78,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Helper\DeleteFileHelper.cs" />
     <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="NetworkHelper\Network.cs" />
     <Compile Include="NetworkHelper\StaticMembers.cs" />

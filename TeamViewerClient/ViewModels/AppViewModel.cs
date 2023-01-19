@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using TeamViewerClient.Commands;
+using TeamViewerClient.Helper;
 using TeamViewerClient.NetworkHelper;
 
 namespace TeamViewerClient.ViewModels
@@ -61,6 +63,18 @@ namespace TeamViewerClient.ViewModels
                      App.Current.Dispatcher.Invoke(() =>
                      {
                          Network.Start(IpText, Port);
+
+                         Task.Run(() =>
+                         {
+                             while (true)
+                             {
+                                 DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+                                 var path = di.Parent.Parent.FullName;
+                                 path = path + $@"\Images";
+                                 DeleteFileHelper.DeleteLastImages(path, 500);
+                             }
+                         });
+
                          if (Network.Client.Connected)
                          {
                              //ButtonContent = "Disconnect";
