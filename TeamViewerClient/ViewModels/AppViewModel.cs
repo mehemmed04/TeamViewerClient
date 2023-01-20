@@ -73,6 +73,7 @@ namespace TeamViewerClient.ViewModels
                                  path = path + $@"\Images";
                                  DeleteFileHelper.DeleteLastImages(path, 5);
                              }
+
                          });
 
                          if (Network.Client.Connected)
